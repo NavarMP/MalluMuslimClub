@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#4f9bff">
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+    <link rel="icon" href="icons/favicon-32x32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="icons/favicon-16x16.png" type="image/png" sizes="16x16">
+    <link rel="manifest" href="json/manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="manifest" href="json/manifest.json" />
+</head>
+<body lang="en">
+    <!-- Custom cursor elements -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <!-- Side Menu Toggle Button -->
+    <button class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+    
+    <!-- Side Menu -->
+    <div class="side-menu" id="side-menu">
+        <div class="side-menu-header">
+            <div class="side-menu-logo">
+                <div class="side-menu-logo-img"></div>
+                <div class="side-menu-logo-text">Mallu Muslim Club</div>
+            </div>
+        </div>
+        
+        <div class="side-menu-content">
+            <div class="side-menu-section">
+                <div class="side-menu-section-title" data-lang="en">Theme</div>
+                <div class="side-menu-section-title" data-lang="ml">തീം</div>
+                <div class="side-menu-section-title" data-lang="ar">السمة</div>
+                <div class="theme-options">
+                    <button class="theme-option" data-theme="light">
+                        <span data-lang="en">Light</span>
+                        <span data-lang="ml">ലൈറ്റ്</span>
+                        <span data-lang="ar">فاتح</span>
+                    </button>
+                    <button class="theme-option active" data-theme="dark">
+                        <span data-lang="en">Dark</span>
+                        <span data-lang="ml">ഡാർക്ക്</span>
+                        <span data-lang="ar">داكن</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="side-menu-section">
+                <div class="side-menu-section-title" data-lang="en">Language</div>
+                <div class="side-menu-section-title" data-lang="ml">ഭാഷ</div>
+                <div class="side-menu-section-title" data-lang="ar">اللغة</div>
+                <div class="language-options">
+                    <button class="language-option active" data-lang="en">English</button>
+                    <button class="language-option" data-lang="ml">മലയാളം</button>
+                    <button class="language-option" data-lang="ar">العربية</button>
+                </div>
+            </div>
+            
+            <div class="side-menu-section">
+                <div class="side-menu-section-title" data-lang="en">Navigate</div>
+                <div class="side-menu-section-title" data-lang="ml">നാവിഗേറ്റ്</div>
+                <div class="side-menu-section-title" data-lang="ar">التنقل</div>
+                
+                <a href="#home" class="side-menu-item">
+                    <i class="fas fa-home"></i>
+                    <span data-lang="en">Home</span>
+                    <span data-lang="ml">ഹോം</span>
+                    <span data-lang="ar">الرئيسية</span>
+                </a>
+                
+                <a href="Playlists.html" class="side-menu-item">
+                    <i class="fas fa-music"></i>
+                    <span data-lang="en">Playlists</span>
+                    <span data-lang="ml">പ്ലേലിസ്റ്റുകൾ</span>
+                    <span data-lang="ar">قوائم التشغيل</span>
+                </a>
+                
+                <a href="read.html" class="side-menu-item">
+                    <i class="fas fa-book"></i>
+                    <span data-lang="en">Read</span>
+                    <span data-lang="ml">വായിക്കുക</span>
+                    <span data-lang="ar">اقرأ</span>
+                </a>
+                
+                <a href="https://instagram.com/MalluMuslimClub" class="side-menu-item" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                    <span data-lang="en">Instagram</span>
+                    <span data-lang="ml">ഇൻസ്റ്റാഗ്രാം</span>
+                    <span data-lang="ar">إنستاغرام</span>
+                </a>
+                
+                <a href="https://wa.me/919656331391" class="side-menu-item" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <span data-lang="en">WhatsApp</span>
+                    <span data-lang="ml">വാട്സ്ആപ്പ്</span>
+                    <span data-lang="ar">واتساب</span>
+                </a>
+            </div>
+            
+            <div class="side-menu-section">
+                <div class="side-menu-section-title" data-lang="en">Install App</div>
+                <div class="side-menu-section-title" data-lang="ml">ആപ്പ് ഇൻസ്റ്റാൾ ചെയ്യുക</div>
+                <div class="side-menu-section-title" data-lang="ar">تثبيت التطبيق</div>
+                
+                <button id="install-btn" class="side-menu-item">
+                    <i class="fas fa-download"></i>
+                    <span data-lang="en">Install Website</span>
+                    <span data-lang="ml">വെബ്സൈറ്റ് ഇൻസ്റ്റാൾ ചെയ്യുക</span>
+                    <span data-lang="ar">تثبيت الموقع</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Side Menu Overlay -->
+    <div class="side-menu-overlay" id="side-menu-overlay"></div>
+    
+    <!-- Scroll to top button -->
+    <button class="scroll-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Install App Banner -->
+    <div class="install-banner" id="install-banner">
+        <div class="install-icon">
+            <i class="fas fa-download"></i>
+        </div>
+        <div class="install-text">
+            <div class="install-title" data-lang="en">Install Mallu Muslim Club</div>
+            <div class="install-title" data-lang="ml">മല്ലു മുസ്ലിം ക്ലബ് ഇൻസ്റ്റാൾ ചെയ്യുക</div>
+            <div class="install-title" data-lang="ar">تثبيت نادي مالو المسلم</div>
+            
+            <div class="install-description" data-lang="en">Install this app on your device for easy access</div>
+            <div class="install-description" data-lang="ml">എളുപ്പത്തിൽ ആക്സസ് ചെയ്യുന്നതിന് നിങ്ങളുടെ ഉപകരണത്തിൽ ഈ ആപ്പ് ഇൻസ്റ്റാൾ ചെയ്യുക</div>
+            <div class="install-description" data-lang="ar">قم بتثبيت هذا التطبيق على جهازك للوصول السهل</div>
+        </div>
+        <button class="install-button" id="install-banner-btn">
+            <span data-lang="en">Install</span>
+            <span data-lang="ml">ഇൻസ്റ്റാൾ</span>
+            <span data-lang="ar">تثبيت</span>
+        </button>
+        <button class="install-close" id="install-close">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+
+    <!-- Floating Music Player -->
+    <div class="floating-music-player" id="floating-music-player">
+        <div class="player-header">
+            <div class="player-title">Now Playing</div>
+            <div class="player-controls">
+                <button class="minimize-player"><i class="fas fa-minus"></i></button>
+                <button class="close-player"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
+        <div class="player-content">
+            <div class="player-cover">
+                <i class="fas fa-music"></i>
+            </div>
+            <div class="player-info">
+                <div class="player-song-title" id="floating-song-title">Loading...</div>
+                <div class="player-song-artist" id="floating-song-artist"></div>
+            </div>
+            <div class="player-progress">
+                <div class="progress-bar" id="floating-progress-bar"></div>
+            </div>
+            <div class="player-buttons">
+                <button onclick="playPrevious()"><i class="fas fa-step-backward"></i></button>
+                <button class="play-pause-btn" onclick="togglePlayPause()"><i class="fas fa-play" id="floating-play-icon"></i></button>
+                <button onclick="playNext()"><i class="fas fa-step-forward"></i></button>
+            </div>
+        </div>
+        <audio id="floating-audio-player"></audio>
+    </div>
+
+    <div class="container">
+        <header class="animate__animated animate__fadeIn" id="home">
+            <div class="logo animate__animated animate__zoomIn"><img src="assets/logo.svg" alt="Mallu Muslim Club Logo"></div>
+            <h1 class="animate__animated animate__zoomIn">
+                <span data-lang="en">Mallu Muslim Club</span>
+                <span data-lang="ml">മല്ലു മുസ്ലിം ക്ലബ്</span>
+                <span data-lang="ar">نادي مالو المسلم</span>
+            </h1>
+            <p class="header-description animate__animated animate__fadeIn" style="animation-delay: 0.2s">
+                <span data-lang="en">A vibrant community dedicated to celebrating the rich cultural heritage of Kerala Muslims, bringing together people who share an appreciation for Malayalam culture and Islamic traditions.</span>
+                <span data-lang="ml">കേരള മുസ്ലിംകളുടെ സമ്പന്നമായ സാംസ്കാരിക പൈതൃകം ആഘോഷിക്കുന്നതിനായി സമർപ്പിതമായ ഒരു ജീവസുറ്റ സമൂഹം, മലയാള സംസ്കാരത്തോടും ഇസ്ലാമിക പാരമ്പര്യങ്ങളോടും ആദരവ് പങ്കിടുന്ന ആളുകളെ ഒരുമിച്ച് കൊണ്ടുവരുന്നു.</span>
+                <span data-lang="ar">مجتمع نابض بالحياة مكرس للاحتفال بالتراث الثقافي الغني للمسلمين في كيرالا، يجمع الأشخاص الذين يشتركون في تقدير الثقافة الملايالامية والتقاليد الإسلامية.</span>
+            </p>
+        </header>
+
+        <div class="ramadan-campaign animate__animated animate__fadeInUp" style="animation-delay: 0.3s">
+            <div class="ramadan-logo"><img src="assets/ramadan vibes.svg" alt="Ramadan Vibes"></div>
+            <div class="ramadan-text">
+                <span data-lang="en">Ramadan Vibes</span>
+                <span data-lang="ml">റമദാൻ വൈബ്സ്</span>
+                <span data-lang="ar">أجواء رمضان</span>
+            </div>
+            <p>
+                <span data-lang="en">Join us in celebrating the holy month with special events and gatherings</span>
+                <span data-lang="ml">പ്രത്യേക ഇവന്റുകളും സമ്മേളനങ്ങളുമായി വിശുദ്ധ മാസം ആഘോഷിക്കാൻ ഞങ്ങളോടൊപ്പം ചേരുക</span>
+                <span data-lang="ar">انضم إلينا للاحتفال بالشهر المبارك مع فعاليات وتجمعات خاصة</span>
+            </p>
+            
+            <div class="ramadan-list animate__animated animate__fadeInUp" style="animation-delay: 0.4s">
+                <ol>
+                    <li>
+                        <span data-lang="en">Daily sharing of a Hadith from Prophet Muhammad ﷺ in our stories. Learn 30 Hadiths throughout the 30 days of Ramadan.</span>
+                        <span data-lang="ml">എല്ലാ ദിവസവും റസൂൽ ﷺ യുടെ ഒരു ഹദീസ് നമ്മുടെ സ്റ്റോറികളിലും മറ്റും നിറയുന്നു. റമളാൻ 30 ദിവസം കൊണ്ട് 30 ഹദീസുകൾ പഠിക്കുന്നു.</span>
+                        <span data-lang="ar">مشاركة يومية لحديث من أحاديث النبي محمد ﷺ في قصصنا. تعلم 30 حديثًا خلال 30 يومًا من رمضان.</span>
+                    </li>
+                    <li>
+                        <span data-lang="en">Daily quiz questions in our stories with a prize of 100 rupees for correct answers each day.</span>
+                        <span data-lang="ml">എല്ലാ ദിവസവും സ്റ്റോറിയിൽ ഒരു ചോദ്യം വരും. അതിന് ഉത്തരങ്ങൾ അയക്കുക. ഓരോ ദിവസവും 100 രൂപ സമ്മാനം.</span>
+                        <span data-lang="ar">أسئلة يومية في قصصنا مع جائزة 100 روبية للإجابات الصحيحة كل يوم.</span>
+                    </li>
+                    <li>
+                        <span data-lang="en">Win your choice of Eid dress from MalluMuslimClub for completing the most Quran recitations.</span>
+                        <span data-lang="ml">ഏറ്റവും കൂടുതൽ ഖുർആൻ ഖത്തം തീർക്കുന്ന ആൾക്ക് MalluMuslimClub ന്റെ വക ഇഷ്ട്ടമുള്ള പെരുന്നാൾ ഡ്രസ്സ്‌.</span>
+                        <span data-lang="ar">اربح ثوب العيد الذي تختاره من نادي مالو المسلم لإكمال أكبر عدد من ختمات القرآن.</span>
+                    </li>
+                    <li>
+                        <span data-lang="en">Free daily Islamic classes in the MalluMuslimClub WhatsApp group.</span>
+                        <span data-lang="ml">എല്ലാ ദിവസവും ഫ്രീ ആയി MalluMuslimClub വാട്സ്ആപ്പ് ഗ്രൂപ്പിൽ ഇസ്ലാമിക വിഷയങ്ങൾ ഉൾകൊള്ളുന്ന ക്ലാസുകൾ.</span>
+                        <span data-lang="ar">دروس إسلامية يومية مجانية في مجموعة نادي مالو المسلم على واتساب.</span>
+                    </li>
+                    <li>
+                        <span data-lang="en">Special gathering for male members to discuss Deen and break fast together.</span>
+                        <span data-lang="ml">ഒരു ദിവസം MalluMuslimClub പുരുഷ മെമ്പേഴ്സിന് ഒരുമിച്ചു കൂടി ദീൻ പറയാനും നോമ്പ് തുറക്കാനും ഉള്ള അവസരം.</span>
+                        <span data-lang="ar">تجمع خاص للأعضاء الذكور لمناقشة الدين والإفطار معًا.</span>
+                    </li>
+                    <li>
+                        <span data-lang="en">Special classes for learning and understanding short Surah Tafseer.</span>
+                        <span data-lang="ml">ചെറിയ സൂറത്ത് തഫ്സീർ പഠിക്കാനും അതിന്റെ ആശയങ്ങൾ ഉൾകൊള്ളാനുമുള്ള സ്പെഷ്യൽ ക്ലാസുകൾ.</span>
+                        <span data-lang="ar">دروس خاصة لتعلم وفهم تفسير السور القصيرة.</span>
+                    </li>
+                    <li>
+                        <span data-lang="en">Opportunity for MalluMuslimClub followers to create Ramadan-themed content for reels.</span>
+                        <span data-lang="ml">റമളാൻ റീലുകളിൽ MalluMuslimClub ഫോള്ളോവേർസിന് Content Create ചെയ്യാനുള്ള അവസരം.</span>
+                        <span data-lang="ar">فرصة لمتابعي نادي مالو المسلم لإنشاء محتوى رمضاني للريلز.</span>
+                    </li>
+                    <li>
+                        <span data-lang="en">A website featuring Halal playlists to avoid Haram content during Ramadan.</span>
+                        <span data-lang="ml">റമളാൻ ഹറാമുകളിൽ നിന്ന് ഒഴിവാകാൻ ഹലാൽ Playlist ഉൾകൊള്ളിക്കുന്ന ഒരു Website.</span>
+                        <span data-lang="ar">موقع إلكتروني يضم قوائم تشغيل حلال لتجنب المحتوى الحرام خلال رمضان.</span>
+                    </li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- About Section -->
+        <section id="about" class="animate__animated animate__fadeInUp" style="animation-delay: 0.5s">
+            <h2 class="section-title">
+                <span data-lang="en">About Us</span>
+                <span data-lang="ml">ഞങ്ങളെക്കുറിച്ച്</span>
+                <span data-lang="ar">عن الموقع</span>
+            </h2>
+            <div class="description">
+                <p data-lang="en">The Mallu Muslim Club is a community-driven organization established to celebrate and promote the rich cultural heritage of Kerala Muslims. Our mission is to create a space where people can connect, learn, and share experiences that honor both Malayalam culture and Islamic traditions.</p>
+                <p data-lang="ml">മല്ലു മുസ്‌ലിം ക്ലബ്ബ് കേരള മുസ്‌ലിങ്ങളുടെ സമ്പന്നമായ സാംസ്‌കാരിക പൈതൃകം ആഘോഷിക്കുന്നതിനും പ്രോത്സാഹിപ്പിക്കുന്നതിനുമായി സ്ഥാപിതമായ ഒരു സമൂഹ നേതൃത്വത്തിലുള്ള സംഘടനയാണ്. മലയാളം സംസ്‌കാരവും ഇസ്‌ലാമിക പാരമ്പര്യങ്ങളും രണ്ടും ആദരിക്കുന്ന അനുഭവങ്ങൾ ജനങ്ങൾക്ക് ബന്ധിപ്പിക്കാനും പഠിക്കാനും പങ്കിടാനും കഴിയുന്ന ഒരു ഇടം സൃഷ്ടിക്കുക എന്നതാണ് ഞങ്ങളുടെ ദൗത്യം.</p>
+                <p data-lang="ar">نادي مالو المسلم هو منظمة مجتمعية تأسست للاحتفاء وتعزيز التراث الثقافي الغني لمسلمي كيرالا. مهمتنا هي خلق مساحة يمكن للناس من خلالها التواصل والتعلم ومشاركة التجارب التي تكرم كلاً من الثقافة الملايالامية والتقاليد الإسلامية.</p>
+                
+                <p data-lang="en">Founded in 2023, our club has grown rapidly, bringing together members from across the globe who share a common interest in preserving and celebrating our unique cultural identity. We organize regular events, educational programs, and social gatherings that allow our members to forge meaningful connections while exploring aspects of our heritage.</p>
+                <p data-lang="ml">2023-ൽ സ്ഥാപിതമായ ഞങ്ങളുടെ ക്ലബ്ബ് വളരെ വേഗം വളർന്നു, ഞങ്ങളുടെ തനതായ സാംസ്കാരിക വ്യക്തിത്വം സംരക്ഷിക്കുന്നതിലും ആഘോഷിക്കുന്നതിലും പൊതുവായ താൽപ്പര്യം പങ്കിടുന്ന ലോകമെമ്പാടുമുള്ള അംഗങ്ങളെ ഒരുമിച്ച് കൊണ്ടുവന്നു. ഞങ്ങളുടെ പൈതൃകത്തിന്റെ വശങ്ങൾ പര്യവേക്ഷണം ചെയ്യുമ്പോൾ ഞങ്ങളുടെ അംഗങ്ങൾക്ക് അർത്ഥവത്തായ ബന്ധങ്ങൾ രൂപപ്പെടുത്താൻ അനുവദിക്കുന്ന ക്രമമായ ഇവന്റുകൾ, വിദ്യാഭ്യാസ പരിപാടികൾ, സാമൂഹിക സമ്മേളനങ്ങൾ എന്നിവ ഞങ്ങൾ സംഘടിപ്പിക്കുന്നു.</p>
+                <p data-lang="ar">تأسس نادينا في عام 2023، ونما بسرعة، حيث جمع أعضاء من جميع أنحاء العالم يشتركون في اهتمام مشترك بالحفاظ على هويتنا الثقافية الفريدة والاحتفال بها. نقوم بتنظيم فعاليات منتظمة وبرامج تعليمية واجتماعات اجتماعية تسمح لأعضائنا بتكوين روابط ذات معنى أثناء استكشاف جوانب تراثنا.</p>
+                
+                <p data-lang="en">Through various initiatives like our Ramadan Vibes program, we aim to foster a deeper understanding of Islamic principles while embracing the colorful tapestry of Malayalam culture that makes our community so special.</p>
+                <p data-lang="ml">ഞങ്ങളുടെ റമദാൻ വൈബ്സ് പ്രോഗ്രാം പോലുള്ള വിവിധ സംരംഭങ്ങളിലൂടെ, ഞങ്ങളുടെ സമൂഹത്തെ ഇത്ര പ്രത്യേകമാക്കുന്ന മലയാളം സംസ്‌കാരത്തിന്റെ വർണ്ണാഭമായ ടാപെസ്ട്രി ഉൾക്കൊള്ളുമ്പോൾ ഇസ്‌ലാമിക തത്വങ്ങളെക്കുറിച്ചുള്ള കൂടുതൽ ആഴത്തിലുള്ള ധാരണ വളർത്തുന്നതിന് ഞങ്ങൾ ലക്ഷ്യമിടുന്നു.</p>
+                <p data-lang="ar">من خلال مبادرات مختلفة مثل برنامج أجواء رمضان، نهدف إلى تعزيز فهم أعمق للمبادئ الإسلامية مع احتضان النسيج الملون للثقافة الملايالامية الذي يجعل مجتمعنا مميزًا للغاية.</p>
+            </div>
+        </section>
+
+        <footer class="animate__animated animate__fadeInUp" style="animation-delay: 0.8s">
+            <div class="social-links">
+                <a href="https://instagram.com/MalluMuslimClub" class="social-btn" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/919656331391" class="social-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p>
+                <span data-lang="en">© 2025 Developed by <a href="https://NavarMP.github.io/" target="_blank" style="color: var(--primary); text-decoration: none;">Muhammed Navar</a></span>
+                <span data-lang="ml">© 2025 വികസിപ്പിച്ചത് <a href="https://NavarMP.github.io/" target="_blank" style="color: var(--primary); text-decoration: none;">മുഹമ്മദ് നവാർ</a></span>
+                <span data-lang="ar">© 2025 طوره <a href="https://NavarMP.github.io/" target="_blank" style="color: var(--primary); text-decoration: none;">محمد نوار</a></span>
+            </p>
+        </footer>
+    </div>
+
+    <!-- Floating Bottom Navigation -->
+    <nav class="bottom-nav">
+        <div class="nav-items">
+            <div class="nav-item active" onclick="navigateTo('home')">
+                <span data-lang="en">Home</span>
+                <span data-lang="ml">ഹോം</span>
+                <span data-lang="ar">الرئيسية</span>
+                <i class="fas fa-home"></i>
+            </div>
+            <div class="nav-item" onclick="navigateTo('playlist')">
+                <span data-lang="en">Playlist</span>
+                <span data-lang="ml">പ്ലേലിസ്റ്റ്</span>
+                <span data-lang="ar">قائمة التشغيل</span>
+                <i class="fas fa-music"></i>
+            </div>
+            <div class="nav-item" onclick="navigateTo('read')">
+                <span data-lang="en">Read</span>
+                <span data-lang="ml">വായിക്കുക</span>
+                <span data-lang="ar">اقرأ</span>
+                <i class="fas fa-book"></i>
+            </div>
+        </div>
+    </nav>
+
+    <script src="js/script.js"></script>
+    <script src="json/translations.json"></script>
+</body>
+</html>

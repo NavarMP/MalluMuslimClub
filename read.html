@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#4f9bff">
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+    <link rel="manifest" href="json/manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="manifest" href="json/manifest.json" />
+</head>
+<body lang="en">
+    <!-- Custom cursor elements -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <!-- Side Menu Toggle Button -->
+    <button class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+    
+    <!-- Side Menu -->
+    <div class="side-menu" id="side-menu">
+        <div class="side-menu-header">
+            <div class="side-menu-logo">
+                <div class="side-menu-logo-img"></div>
+                <div class="side-menu-logo-text">Mallu Muslim Club</div>
+            </div>
+        </div>
+        
+        <div class="side-menu-content">
+            <div class="side-menu-section">
+                <div class="side-menu-section-title" data-lang="en">Theme</div>
+                <div class="side-menu-section-title" data-lang="ml">തീം</div>
+                <div class="side-menu-section-title" data-lang="ar">السمة</div>
+                <div class="theme-options">
+                    <button class="theme-option" data-theme="light">
+                        <span data-lang="en">Light</span>
+                        <span data-lang="ml">ലൈറ്റ്</span>
+                        <span data-lang="ar">فاتح</span>
+                    </button>
+                    <button class="theme-option active" data-theme="dark">
+                        <span data-lang="en">Dark</span>
+                        <span data-lang="ml">ഡാർക്ക്</span>
+                        <span data-lang="ar">داكن</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="side-menu-section">
+                <div class="side-menu-section-title" data-lang="en">Language</div>
+                <div class="side-menu-section-title" data-lang="ml">ഭാഷ</div>
+                <div class="side-menu-section-title" data-lang="ar">اللغة</div>
+                <div class="language-options">
+                    <button class="language-option active" data-lang="en">English</button>
+                    <button class="language-option" data-lang="ml">മലയാളം</button>
+                    <button class="language-option" data-lang="ar">العربية</button>
+                </div>
+            </div>
+            
+            <div class="side-menu-section">
+                <div class="side-menu-section-title" data-lang="en">Navigate</div>
+                <div class="side-menu-section-title" data-lang="ml">നാവിഗേറ്റ്</div>
+                <div class="side-menu-section-title" data-lang="ar">التنقل</div>
+                
+                <a href="index.html" class="side-menu-item">
+                    <i class="fas fa-home"></i>
+                    <span data-lang="en">Home</span>
+                    <span data-lang="ml">ഹോം</span>
+                    <span data-lang="ar">الرئيسية</span>
+                </a>
+                
+                <a href="playlists.html" class="side-menu-item">
+                    <i class="fas fa-music"></i>
+                    <span data-lang="en">Playlists</span>
+                    <span data-lang="ml">പ്ലേലിസ്റ്റുകൾ</span>
+                    <span data-lang="ar">قوائم التشغيل</span>
+                </a>
+                
+                <a href="read.html" class="side-menu-item">
+                    <i class="fas fa-book"></i>
+                    <span data-lang="en">Read</span>
+                    <span data-lang="ml">വായിക്കുക</span>
+                    <span data-lang="ar">اقرأ</span>
+                </a>
+                
+                <a href="https://instagram.com/MalluMuslimClub" class="side-menu-item" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                    <span data-lang="en">Instagram</span>
+                    <span data-lang="ml">ഇൻസ്റ്റാഗ്രാം</span>
+                    <span data-lang="ar">إنستاغرام</span>
+                </a>
+                
+                <a href="https://wa.me/919656331391" class="side-menu-item" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <span data-lang="en">WhatsApp</span>
+                    <span data-lang="ml">വാട്സ്ആപ്പ്</span>
+                    <span data-lang="ar">واتساب</span>
+                </a>
+            </div>
+            
+            <div class="side-menu-section">
+                <div class="side-menu-section-title" data-lang="en">Install App</div>
+                <div class="side-menu-section-title" data-lang="ml">ആപ്പ് ഇൻസ്റ്റാൾ ചെയ്യുക</div>
+                <div class="side-menu-section-title" data-lang="ar">تثبيت التطبيق</div>
+                
+                <button id="install-btn" class="side-menu-item">
+                    <i class="fas fa-download"></i>
+                    <span data-lang="en">Install Website</span>
+                    <span data-lang="ml">വെബ്സൈറ്റ് ഇൻസ്റ്റാൾ ചെയ്യുക</span>
+                    <span data-lang="ar">تثبيت الموقع</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Side Menu Overlay -->
+    <div class="side-menu-overlay" id="side-menu-overlay"></div>
+    
+    <!-- Scroll to top button -->
+    <button class="scroll-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Floating Music Player -->
+    <div class="floating-music-player" id="floating-music-player">
+        <div class="player-header">
+            <div class="player-title">Now Playing</div>
+            <div class="player-controls">
+                <button class="minimize-player"><i class="fas fa-minus"></i></button>
+                <button class="close-player"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
+        <div class="player-content">
+            <div class="player-cover">
+                <i class="fas fa-music"></i>
+            </div>
+            <div class="player-info">
+                <div class="player-song-title" id="floating-song-title">Loading...</div>
+                <div class="player-song-artist" id="floating-song-artist"></div>
+            </div>
+            <div class="player-progress">
+                <div class="progress-bar" id="floating-progress-bar"></div>
+            </div>
+            <div class="player-buttons">
+                <button onclick="playPrevious()"><i class="fas fa-step-backward"></i></button>
+                <button class="play-pause-btn" onclick="togglePlayPause()"><i class="fas fa-play" id="floating-play-icon"></i></button>
+                <button onclick="playNext()"><i class="fas fa-step-forward"></i></button>
+            </div>
+        </div>
+        <audio id="floating-audio-player"></audio>
+    </div>
+
+    <div class="container">
+        
+        <header class="animate__animated animate__fadeIn">
+            <h1 class="animate__animated animate__zoomIn">
+                <span data-lang="en">Islamic Reading</span>
+                <span data-lang="ml">ഇസ്‌ലാമിക വായന</span>
+                <span data-lang="ar">القراءة الإسلامية</span>
+            </h1>
+            <p class="header-description animate__animated animate__fadeIn" style="animation-delay: 0.2s">
+                <span data-lang="en">Explore Islamic knowledge through our collection of articles, hadiths, and resources.</span>
+                <span data-lang="ml">ഞങ്ങളുടെ ലേഖനങ്ങൾ, ഹദീസുകൾ, മറ്റ് വിഭവങ്ങൾ എന്നിവയിലൂടെ ഇസ്‌ലാമിക അറിവ് പര്യവേക്ഷണം ചെയ്യുക.</span>
+                <span data-lang="ar">استكشف المعرفة الإسلامية من خلال مجموعتنا من المقالات والأحاديث والموارد.</span>
+            </p>
+        </header>
+
+        <div class="articles-section">
+            <div class="article-filters">
+                <button class="filter-btn active" data-filter="all">
+                    <span data-lang="en">All</span>
+                    <span data-lang="ml">എല്ലാം</span>
+                    <span data-lang="ar">الكل</span>
+                </button>
+                <button class="filter-btn" data-filter="hadith">
+                    <span data-lang="en">Hadith</span>
+                    <span data-lang="ml">ഹദീസ്</span>
+                    <span data-lang="ar">حديث</span>
+                </button>
+                <button class="filter-btn" data-filter="articles">
+                    <span data-lang="en">Articles</span>
+                    <span data-lang="ml">ലേഖനങ്ങൾ</span>
+                    <span data-lang="ar">مقالات</span>
+                </button>
+                <button class="filter-btn" data-filter="quran">
+                    <span data-lang="en">Quran</span>
+                    <span data-lang="ml">ഖുർആൻ</span>
+                    <span data-lang="ar">القرآن</span>
+                </button>
+            </div>
+
+            <div class="articles-grid">
+                <!-- Hadith Cards -->
+                <div class="article-card hadith animate__animated animate__fadeIn">
+                    <div class="article-image" style="background-image: url('assets/hadith1.jpg');"></div>
+                    <div class="article-content">
+                        <div class="article-tag">
+                            <span data-lang="en">Hadith</span>
+                            <span data-lang="ml">ഹദീസ്</span>
+                            <span data-lang="ar">حديث</span>
+                        </div>
+                        <h3 class="article-title">
+                            <span data-lang="en">The Most Merciful</span>
+                            <span data-lang="ml">ഏറ്റവും കരുണാമയനായവൻ</span>
+                            <span data-lang="ar">الأكثر رحمة</span>
+                        </h3>
+                        <p class="article-excerpt">
+                            <span data-lang="en">The Prophet Muhammad ﷺ said: "The merciful are shown mercy by the Most Merciful. Be merciful to those on earth, and the One in heaven will be merciful to you."</span>
+                            <span data-lang="ml">പ്രവാചകൻ മുഹമ്മദ് ﷺ പറഞ്ഞു: "കാരുണ്യമുള്ളവർക്ക് പരമകാരുണികനിൽ നിന്ന് കാരുണ്യം ലഭിക്കുന്നു. ഭൂമിയിലുള്ളവരോട് കരുണ കാണിക്കുക, സ്വർഗ്ഗത്തിലുള്ളവൻ നിങ്ങളോട് കരുണ കാണിക്കും."</span>
+                            <span data-lang="ar">قال النبي محمد ﷺ: "الراحمون يرحمهم الرحمن. ارحموا من في الأرض، يرحمكم من في السماء."</span>
+                        </p>
+                        <div class="article-meta">
+                            <span>Tirmidhi</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="article-card hadith animate__animated animate__fadeIn" style="animation-delay: 0.1s;">
+                    <div class="article-image" style="background-image: url('assets/hadith2.jpg');"></div>
+                    <div class="article-content">
+                        <div class="article-tag">
+                            <span data-lang="en">Hadith</span>
+                            <span data-lang="ml">ഹദീസ്</span>
+                            <span data-lang="ar">حديث</span>
+                        </div>
+                        <h3 class="article-title">
+                            <span data-lang="en">Deeds and Intentions</span>
+                            <span data-lang="ml">പ്രവൃത്തികളും ഉദ്ദേശ്യങ്ങളും</span>
+                            <span data-lang="ar">الأعمال والنوايا</span>
+                        </h3>
+                        <p class="article-excerpt">
+                            <span data-lang="en">The Prophet Muhammad ﷺ said: "Actions are judged by intentions, and everyone will get what they intended."</span>
+                            <span data-lang="ml">പ്രവാചകൻ മുഹമ്മദ് ﷺ പറഞ്ഞു: "പ്രവൃത്തികൾ ഉദ്ദേശ്യങ്ങൾ അനുസരിച്ച് വിധിക്കപ്പെടുന്നു, ഓരോ വ്യക്തിക്കും അവർ ഉദ്ദേശിച്ചത് ലഭിക്കും."</span>
+                            <span data-lang="ar">قال النبي محمد ﷺ: "إنما الأعمال بالنيات، وإنما لكل امرئ ما نوى."</span>
+                        </p>
+                        <div class="article-meta">
+                            <span>Bukhari & Muslim</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article Cards -->
+                <div class="article-card articles animate__animated animate__fadeIn" style="animation-delay: 0.2s;">
+                    <div class="article-image" style="background-image: url('assets/article1.jpg');"></div>
+                    <div class="article-content">
+                        <div class="article-tag">
+                            <span data-lang="en">Article</span>
+                            <span data-lang="ml">ലേഖനം</span>
+                            <span data-lang="ar">مقال</span>
+                        </div>
+                        <h3 class="article-title">
+                            <span data-lang="en">The Kerala Muslim Heritage</span>
+                            <span data-lang="ml">കേരള മുസ്ലിം പൈതൃകം</span>
+                            <span data-lang="ar">تراث مسلمي كيرالا</span>
+                        </h3>
+                        <p class="article-excerpt">
+                            <span data-lang="en">Explore the rich history of Islam in Kerala and how it has shaped the unique Mallu Muslim culture that thrives today.</span>
+                            <span data-lang="ml">കേരളത്തിലെ ഇസ്‌ലാമിന്റെ സമ്പന്നമായ ചരിത്രവും ഇന്ന് തഴച്ചുവളരുന്ന അനന്യമായ മല്ലു മുസ്‌ലിം സംസ്‌കാരത്തെ എങ്ങനെ രൂപപ്പെടുത്തിയെന്നും പര്യവേക്ഷണം ചെയ്യുക.</span>
+                            <span data-lang="ar">استكشف التاريخ الغني للإسلام في كيرالا وكيف شكل ثقافة مالو المسلمة الفريدة التي تزدهر اليوم.</span>
+                        </p>
+                        <div class="article-meta">
+                            <span>15 min read</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="article-card articles animate__animated animate__fadeIn" style="animation-delay: 0.3s;">
+                    <div class="article-image" style="background-image: url('assets/article2.jpg');"></div>
+                    <div class="article-content">
+                        <div class="article-tag">
+                            <span data-lang="en">Article</span>
+                            <span data-lang="ml">ലേഖനം</span>
+                            <span data-lang="ar">مقال</span>
+                        </div>
+                        <h3 class="article-title">
+                            <span data-lang="en">Ramadan: A Month of Blessings</span>
+                            <span data-lang="ml">റമദാൻ: അനുഗ്രഹങ്ങളുടെ മാസം</span>
+                            <span data-lang="ar">رمضان: شهر البركات</span>
+                        </h3>
+                        <p class="article-excerpt">
+                            <span data-lang="en">Learn about the significance of Ramadan, its spiritual benefits, and how to maximize your worship during this holy month.</span>
+                            <span data-lang="ml">റമദാന്റെ പ്രാധാന്യം, അതിന്റെ ആത്മീയ ഗുണങ്ങൾ, ഈ വിശുദ്ധ മാസത്തിൽ നിങ്ങളുടെ ആരാധന എങ്ങനെ പരമാവധി പ്രയോജനപ്പെടുത്താം എന്നിവയെക്കുറിച്ച് മനസ്സിലാക്കുക.</span>
+                            <span data-lang="ar">تعرف على أهمية رمضان وفوائده الروحية وكيفية تعظيم عبادتك خلال هذا الشهر المبارك.</span>
+                        </p>
+                        <div class="article-meta">
+                            <span>10 min read</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quran Cards -->
+                <div class="article-card quran animate__animated animate__fadeIn" style="animation-delay: 0.4s;">
+                    <div class="article-image" style="background-image: url('assets/quran1.jpg');"></div>
+                    <div class="article-content">
+                        <div class="article-tag">
+                            <span data-lang="en">Quran</span>
+                            <span data-lang="ml">ഖുർആൻ</span>
+                            <span data-lang="ar">القرآن</span>
+                        </div>
+                        <h3 class="article-title">
+                            <span data-lang="en">Understanding Surah Al-Fatiha</span>
+                            <span data-lang="ml">സൂറത്തുൽ ഫാത്തിഹ മനസ്സിലാക്കുന്നു</span>
+                            <span data-lang="ar">فهم سورة الفاتحة</span>
+                        </h3>
+                        <p class="article-excerpt">
+                            <span data-lang="en">A detailed explanation of the opening chapter of the Quran, which is recited in every prayer and contains profound meanings.</span>
+                            <span data-lang="ml">ഖുർആന്റെ ആദ്യ അധ്യായത്തിന്റെ വിശദമായ വിശദീകരണം, ഇത് എല്ലാ നമസ്കാരത്തിലും ഓതുകയും അഗാധമായ അർത്ഥങ്ങൾ അടങ്ങിയിരിക്കുകയും ചെയ്യുന്നു.</span>
+                            <span data-lang="ar">شرح مفصل للفصل الافتتاحي من القرآن، الذي يُتلى في كل صلاة ويحتوي على معان عميقة.</span>
+                        </p>
+                        <div class="article-meta">
+                            <span>Tafsir</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="article-card quran animate__animated animate__fadeIn" style="animation-delay: 0.5s;">
+                    <div class="article-image" style="background-image: url('assets/quran2.jpg');"></div>
+                    <div class="article-content">
+                        <div class="article-tag">
+                            <span data-lang="en">Quran</span>
+                            <span data-lang="ml">ഖുർആൻ</span>
+                            <span data-lang="ar">القرآن</span>
+                        </div>
+                        <h3 class="article-title">
+                            <span data-lang="en">Lessons from Surah Al-Asr</span>
+                            <span data-lang="ml">സൂറത്തുൽ അസ്‌റിൽ നിന്നുള്ള പാഠങ്ങൾ</span>
+                            <span data-lang="ar">دروس من سورة العصر</span>
+                        </h3>
+                        <p class="article-excerpt">
+                            <span data-lang="en">Discover the powerful message in one of the shortest chapters of the Quran that provides a complete formula for human success.</span>
+                            <span data-lang="ml">മനുഷ്യന്റെ വിജയത്തിനുള്ള ഒരു സമ്പൂർണ്ണ സൂത്രവാക്യം നൽകുന്ന ഖുർആനിലെ ഏറ്റവും ചെറിയ അധ്യായങ്ങളിലൊന്നിലെ ശക്തമായ സന്ദേശം കണ്ടെത്തുക.</span>
+                            <span data-lang="ar">اكتشف الرسالة القوية في أحد أقصر فصول القرآن التي توفر صيغة كاملة للنجاح البشري.</span>
+                        </p>
+                        <div class="article-meta">
+                            <span>Tafsir</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="animate__animated animate__fadeInUp" style="animation-delay: 0.8s">
+            <div class="social-links">
+                <a href="https://instagram.com/MalluMuslimClub" class="social-btn" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/919656331391" class="social-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p>
+                <span data-lang="en">© 2025 Developed by <a href="https://NavarMP.github.io/" target="_blank" style="color: var(--primary); text-decoration: none;">Muhammed Navar</a></span>
+                <span data-lang="ml">© 2025 വികസിപ്പിച്ചത് <a href="https://NavarMP.github.io/" target="_blank" style="color: var(--primary); text-decoration: none;">മുഹമ്മദ് നവാർ</a></span>
+                <span data-lang="ar">© 2025 طوره <a href="https://NavarMP.github.io/" target="_blank" style="color: var(--primary); text-decoration: none;">محمد نوار</a></span>
+            </p>
+        </footer>
+    </div>
+
+    <!-- Floating Bottom Navigation -->
+    <nav class="bottom-nav">
+        <div class="nav-items">
+            <div class="nav-item" onclick="navigateTo('home')">
+                <span data-lang="en">Home</span>
+                <span data-lang="ml">ഹോം</span>
+                <span data-lang="ar">الرئيسية</span>
+                <i class="fas fa-home"></i>
+            </div>
+            <div class="nav-item" onclick="navigateTo('playlist')">
+                <span data-lang="en">Playlist</span>
+                <span data-lang="ml">പ്ലേലിസ്റ്റ്</span>
+                <span data-lang="ar">قائمة التشغيل</span>
+                <i class="fas fa-music"></i>
+            </div>
+            <div class="nav-item active" onclick="navigateTo('read')">
+                <span data-lang="en">Read</span>
+                <span data-lang="ml">വായിക്കുക</span>
+                <span data-lang="ar">اقرأ</span>
+                <i class="fas fa-book"></i>
+            </div>
+        </div>
+    </nav>
+
+    <script src="js/script.js"></script>
+    <script src="json/translations.json"></script>
+</body>
+</html>

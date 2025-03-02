@@ -1,0 +1,158 @@
+{
+    "common": {
+      "siteTitle": {
+        "en": "Mallu Muslim Club",
+        "ml": "മല്ലു മുസ്ലിം ക്ലബ്",
+        "ar": "نادي مالو المسلم"
+      },
+      "home": {
+        "en": "Home",
+        "ml": "ഹോം",
+        "ar": "الرئيسية"
+      },
+      "playlist": {
+        "en": "Playlist",
+        "ml": "പ്ലേലിസ്റ്റ്",
+        "ar": "قائمة التشغيل"
+      },
+      "about": {
+        "en": "About",
+        "ml": "ഞങ്ങളെക്കുറിച്ച്",
+        "ar": "حول"
+      },
+      "social": {
+        "en": "Social",
+        "ml": "സോഷ്യൽ",
+        "ar": "التواصل"
+      },
+      "backHome": {
+        "en": "Back to Home",
+        "ml": "ഹോമിലേക്ക് മടങ്ങുക",
+        "ar": "العودة إلى الرئيسية"
+      },
+      "copyright": {
+        "en": "© 2025 Developed by Muhammed Navar",
+        "ml": "© 2025 വികസിപ്പിച്ചത് മുഹമ്മദ് നവാർ",
+        "ar": "© 2025 طوره محمد نوار"
+      },
+      "theme": {
+        "en": "Theme",
+        "ml": "തീം",
+        "ar": "السمة"
+      },
+      "light": {
+        "en": "Light",
+        "ml": "ലൈറ്റ്",
+        "ar": "فاتح"
+      },
+      "dark": {
+        "en": "Dark",
+        "ml": "ഡാർക്ക്",
+        "ar": "داكن"
+      },
+      "language": {
+        "en": "Language",
+        "ml": "ഭാഷ",
+        "ar": "اللغة"
+      },
+      "navigate": {
+        "en": "Navigate",
+        "ml": "നാവിഗേറ്റ്",
+        "ar": "التنقل"
+      },
+      "installApp": {
+        "en": "Install App",
+        "ml": "ആപ്പ് ഇൻസ്റ്റാൾ ചെയ്യുക",
+        "ar": "تثبيت التطبيق"
+      },
+      "installWebsite": {
+        "en": "Install Website",
+        "ml": "വെബ്സൈറ്റ് ഇൻസ്റ്റാൾ ചെയ്യുക",
+        "ar": "تثبيت الموقع"
+      },
+      "install": {
+        "en": "Install",
+        "ml": "ഇൻസ്റ്റാൾ",
+        "ar": "تثبيت"
+      }
+    },
+    "home": {
+      "headerDescription": {
+        "en": "A vibrant community dedicated to celebrating the rich cultural heritage of Kerala Muslims, bringing together people who share an appreciation for Malayalam culture and Islamic traditions.",
+        "ml": "കേരള മുസ്ലിംകളുടെ സമ്പന്നമായ സാംസ്കാരിക പൈതൃകം ആഘോഷിക്കുന്നതിനായി സമർപ്പിതമായ ഒരു ജീവസുറ്റ സമൂഹം, മലയാള സംസ്കാരത്തോടും ഇസ്ലാമിക പാരമ്പര്യങ്ങളോടും ആദരവ് പങ്കിടുന്ന ആളുകളെ ഒരുമിച്ച് കൊണ്ടുവരുന്നു.",
+        "ar": "مجتمع نابض بالحياة مكرس للاحتفال بالتراث الثقافي الغني للمسلمين في كيرالا، يجمع الأشخاص الذين يشتركون في تقدير الثقافة الملايالامية والتقاليد الإسلامية."
+      },
+      "ramadanVibes": {
+        "en": "Ramadan Vibes",
+        "ml": "റമദാൻ വൈബ്സ്",
+        "ar": "أجواء رمضان"
+      },
+      "ramadanDescription": {
+        "en": "Join us in celebrating the holy month with special events and gatherings",
+        "ml": "പ്രത്യേക ഇവന്റുകളും സമ്മേളനങ്ങളുമായി വിശുദ്ധ മാസം ആഘോഷിക്കാൻ ഞങ്ങളോടൊപ്പം ചേരുക",
+        "ar": "انضم إلينا للاحتفال بالشهر المبارك مع فعاليات وتجمعات خاصة"
+      },
+      "aboutTitle": {
+        "en": "About Us",
+        "ml": "ഞങ്ങളെക്കുറിച്ച്",
+        "ar": "عن الموقع"
+      },
+      "aboutDescription1": {
+        "en": "The Mallu Muslim Club is a community-driven organization established to celebrate and promote the rich cultural heritage of Kerala Muslims. Our mission is to create a space where people can connect, learn, and share experiences that honor both Malayalam culture and Islamic traditions.",
+        "ml": "മല്ലു മുസ്‌ലിം ക്ലബ്ബ് കേരള മുസ്‌ലിങ്ങളുടെ സമ്പന്നമായ സാംസ്‌കാരിക പൈതൃകം ആഘോഷിക്കുന്നതിനും പ്രോത്സാഹിപ്പിക്കുന്നതിനുമായി സ്ഥാപിതമായ ഒരു സമൂഹ നേതൃത്വത്തിലുള്ള സംഘടനയാണ്. മലയാളം സംസ്‌കാരവും ഇസ്‌ലാമിക പാരമ്പര്യങ്ങളും രണ്ടും ആദരിക്കുന്ന അനുഭവങ്ങൾ ജനങ്ങൾക്ക് ബന്ധിപ്പിക്കാനും പഠിക്കാനും പങ്കിടാനും കഴിയുന്ന ഒരു ഇടം സൃഷ്ടിക്കുക എന്നതാണ് ഞങ്ങളുടെ ദൗത്യം.",
+        "ar": "نادي مالو المسلم هو منظمة مجتمعية تأسست للاحتفاء وتعزيز التراث الثقافي الغني لمسلمي كيرالا. مهمتنا هي خلق مساحة يمكن للناس من خلالها التواصل والتعلم ومشاركة التجارب التي تكرم كلاً من الثقافة الملايالامية والتقاليد الإسلامية."
+      },
+      "aboutDescription2": {
+        "en": "Founded in 2023, our club has grown rapidly, bringing together members from across the globe who share a common interest in preserving and celebrating our unique cultural identity. We organize regular events, educational programs, and social gatherings that allow our members to forge meaningful connections while exploring aspects of our heritage.",
+        "ml": "2023-ൽ സ്ഥാപിതമായ ഞങ്ങളുടെ ക്ലബ്ബ് വളരെ വേഗം വളർന്നു, ഞങ്ങളുടെ തനതായ സാംസ്‌കാരിക വ്യക്തിത്വം സംരക്ഷിക്കുന്നതിലും ആഘോഷിക്കുന്നതിലും പൊതുവായ താൽപ്പര്യം പങ്കിടുന്ന ലോകമെമ്പാടുമുള്ള അംഗങ്ങളെ ഒരുമിച്ച് കൊണ്ടുവന്നു. ഞങ്ങളുടെ പൈതൃകത്തിന്റെ വശങ്ങൾ പര്യവേക്ഷണം ചെയ്യുമ്പോൾ ഞങ്ങളുടെ അംഗങ്ങൾക്ക് അർത്ഥവത്തായ ബന്ധങ്ങൾ രൂപപ്പെടുത്താൻ അനുവദിക്കുന്ന ക്രമമായ ഇവന്റുകൾ, വിദ്യാഭ്യാസ പരിപാടികൾ, സാമൂഹിക സമ്മേളനങ്ങൾ എന്നിവ ഞങ്ങൾ സംഘടിപ്പിക്കുന്നു.",
+        "ar": "تأسس نادينا في عام 2023، ونما بسرعة، حيث جمع أعضاء من جميع أنحاء العالم يشتركون في اهتمام مشترك بالحفاظ على هويتنا الثقافية الفريدة والاحتفال بها. نقوم بتنظيم فعاليات منتظمة وبرامج تعليمية واجتماعات اجتماعية تسمح لأعضائنا بتكوين روابط ذات معنى أثناء استكشاف جوانب تراثنا."
+      },
+      "aboutDescription3": {
+        "en": "Through various initiatives like our Ramadan Vibes program, we aim to foster a deeper understanding of Islamic principles while embracing the colorful tapestry of Malayalam culture that makes our community so special.",
+        "ml": "ഞങ്ങളുടെ റമദാൻ വൈബ്സ് പ്രോഗ്രാം പോലുള്ള വിവിധ സംരംഭങ്ങളിലൂടെ, ഞങ്ങളുടെ സമൂഹത്തെ ഇത്ര പ്രത്യേകമാക്കുന്ന മലയാളം സംസ്‌കാരത്തിന്റെ വർണ്ണാഭമായ ടാപെസ്ട്രി ഉൾക്കൊള്ളുമ്പോൾ ഇസ്‌ലാമിക തത്വങ്ങളെക്കുറിച്ചുള്ള കൂടുതൽ ആഴത്തിലുള്ള ധാരണ വളർത്തുന്നതിന് ഞങ്ങൾ ലക്ഷ്യമിടുന്നു.",
+        "ar": "من خلال مبادرات مختلفة مثل برنامج أجواء رمضان، نهدف إلى تعزيز فهم أعمق للمبادئ الإسلامية مع احتضان النسيج الملون للثقافة الملايالامية الذي يجعل مجتمعنا مميزًا للغاية."
+      },
+      "installTitle": {
+        "en": "Install Mallu Muslim Club",
+        "ml": "മല്ലു മുസ്ലിം ക്ലബ് ഇൻസ്റ്റാൾ ചെയ്യുക",
+        "ar": "تثبيت نادي مالو المسلم"
+      },
+      "installDescription": {
+        "en": "Install this app on your device for easy access",
+        "ml": "എളുപ്പത്തിൽ ആക്സസ് ചെയ്യുന്നതിന് നിങ്ങളുടെ ഉപകരണത്തിൽ ഈ ആപ്പ് ഇൻസ്റ്റാൾ ചെയ്യുക",
+        "ar": "قم بتثبيت هذا التطبيق على جهازك للوصول السهل"
+      }
+    },
+    "playlists": {
+      "title": {
+        "en": "Music Playlists",
+        "ml": "സംഗീത പ്ലേലിസ്റ്റുകൾ",
+        "ar": "قوائم تشغيل الموسيقى"
+      },
+      "description": {
+        "en": "Enjoy our curated collection of halal music that uplifts the soul and celebrates our cultural heritage.",
+        "ml": "ആത്മാവിനെ ഉയർത്തുകയും നമ്മുടെ സാംസ്കാരിക പൈതൃകത്തെ ആഘോഷിക്കുകയും ചെയ്യുന്ന ഹലാൽ സംഗീതത്തിന്റെ ക്യുറേറ്റ് ചെയ്ത ശേഖരം ആസ്വദിക്കൂ.",
+        "ar": "استمتع بمجموعتنا المختارة من الموسيقى الحلال التي ترفع الروح وتحتفل بتراثنا الثقافي."
+      },
+      "arabicNasheeds": {
+        "en": "Arabic Nasheeds",
+        "ml": "അറബിക് നശീദുകൾ",
+        "ar": "الأناشيد العربية"
+      },
+      "malayalamSongs": {
+        "en": "Malayalam Songs",
+        "ml": "മലയാളം ഗാനങ്ങൾ",
+        "ar": "الأغاني المالايالامية"
+      },
+      "gymNasheeds": {
+        "en": "Gym Nasheeds",
+        "ml": "ജിം നശീദുകൾ",
+        "ar": "أناشيد الجيم"
+      },
+      "selectSong": {
+        "en": "Select a song to play",
+        "ml": "പ്ലേ ചെയ്യാൻ ഒരു ഗാനം തിരഞ്ഞെടുക്കുക",
+        "ar": "اختر أغنية للتشغيل"
+      }
+    }
+  }

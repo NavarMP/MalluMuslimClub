@@ -1,0 +1,1323 @@
+:root {
+    /* Dark theme (default) */
+    --primary: #4f9bff;
+    --primary-variant: #275ea3;
+    --secondary: #00c4da;
+    --background: #121212;
+    --surface: #111827;
+    --text: #ffffff;
+    --text-secondary: #a1b2d8;
+    --accent: #00e5ff;
+    --cursor-color: rgba(79, 155, 255, 0.6);
+}
+
+[data-theme="light"] {
+    --primary: #0066cc;
+    --primary-variant: #0050a3;
+    --secondary: #009eb0;
+    --background: #f7f9fc;
+    --surface: #ffffff;
+    --text: #111827;
+    --text-secondary: #4b5563;
+    --accent: #0088cc;
+    --cursor-color: rgba(0, 102, 204, 0.6);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    scroll-behavior: smooth;
+}
+
+/* Only apply custom cursor on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+    * {
+        cursor: none;
+    }
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    background-color: var(--background);
+    color: var(--text);
+    min-height: 100vh;
+    padding-bottom: 90px;
+    overflow-x: hidden;
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Custom Cursor - only visible on non-touch devices */
+.cursor, .cursor-follower {
+    display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .cursor {
+        display: block;
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: var(--cursor-color);
+        pointer-events: none;
+        z-index: 10000;  /* Increased z-index */
+        transform: translate(-50%, -50%);
+        transition: width 0.2s, height 0.2s, opacity 0.5s;
+        mix-blend-mode: difference;
+        opacity: 0;
+    }
+
+    .cursor-follower {
+        display: block;
+        position: fixed;
+        width: 40px;
+        height: 40px;
+        border: 2px solid var(--cursor-color);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 10000;  /* Increased z-index */
+        transform: translate(-50%, -50%);
+        transition: 0.1s ease, opacity 0.5s;
+        mix-blend-mode: difference;
+        opacity: 0;
+    }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    a, button, .nav-item, .social-btn, .playlist-tab, .song-item, .play-pause-button, 
+    .control-button, .progress-container, .side-menu-item, .menu-toggle, .filter-btn {
+        cursor: none;
+    }
+}
+
+a:hover ~ .cursor, 
+button:hover ~ .cursor,
+.nav-item:hover ~ .cursor,
+.social-btn:hover ~ .cursor,
+.playlist-tab:hover ~ .cursor,
+.song-item:hover ~ .cursor,
+.play-pause-button:hover ~ .cursor,
+.control-button:hover ~ .cursor,
+.progress-container:hover ~ .cursor,
+.side-menu-item:hover ~ .cursor,
+.menu-toggle:hover ~ .cursor,
+.filter-btn:hover ~ .cursor {
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: 2px solid var(--cursor-color);
+}
+
+/* Side Menu */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: var(--surface);
+    z-index: 9998;  /* Updated z-index */
+    transition: left 0.3s ease;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+}
+
+.side-menu.active {
+    left: 0;
+}
+
+.side-menu-header {
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.side-menu-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.side-menu-logo-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: url('assets/logo.svg') center/cover no-repeat;
+}
+
+.side-menu-logo-text {
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.side-menu-content {
+    padding: 20px;
+}
+
+.side-menu-section {
+    margin-bottom: 30px;
+}
+
+.side-menu-section-title {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.theme-options, .language-options {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.theme-option, .language-option {
+    padding: 8px 16px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--text);
+    cursor: none;
+    transition: background-color 0.3s ease;
+}
+
+.theme-option.active, .language-option.active {
+    background-color: var(--primary);
+    color: white;
+}
+
+.theme-option:hover, .language-option:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Fix for light theme button visibility in dark theme */
+[data-theme="dark"] .theme-option {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.side-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 0;
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.side-menu-item:hover {
+    color: var(--primary);
+}
+
+.side-menu-item i {
+    width: 24px;
+    text-align: center;
+}
+
+.side-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9997;  /* Updated z-index */
+    display: none;
+}
+
+.side-menu-overlay.active {
+    display: block;
+}
+
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 9999;  /* Updated z-index */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--surface);
+    color: var(--primary);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.menu-toggle:hover {
+    transform: scale(1.1);
+}
+
+header {
+    text-align: center;
+    padding: 100px 0 30px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+    border-radius: 50%;
+    margin: 0 auto 30px;
+    background: url('assets/logo.svg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 1.8rem;
+}
+
+h1 {
+    margin: 0;
+    font-size: 3.5rem;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 15px;
+}
+
+.header-description {
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Floating Bottom Navigation */
+.bottom-nav {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 500px;
+    height: 65px;
+    background-color: var(--surface);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    border-radius: 18px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.bottom-nav.hidden {
+    transform: translate(-50%, 100px);
+    opacity: 0;
+}
+
+.nav-items {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 0 10px;
+}
+
+.nav-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    cursor: none;
+    padding: 10px 0;
+}
+
+.nav-item i {
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+}
+
+.nav-item span {
+    position: absolute;
+    top: -35px;
+    font-size: 0.8rem;
+    background-color: var(--surface);
+    padding: 5px 10px;
+    border-radius: 8px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    white-space: nowrap;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.nav-item:hover {
+    color: var(--primary);
+}
+
+.nav-item:hover span {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.nav-item.active {
+    color: var(--primary);
+}
+
+.nav-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 5px;
+    height: 5px;
+    background-color: var(--primary);
+    border-radius: 50%;
+}
+
+.ramadan-campaign {
+    margin: 40px auto 60px;
+    text-align: center;
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.ramadan-campaign::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(79, 155, 255, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+    z-index: -1;
+}
+
+.ramadan-logo {
+    width: 120px;
+    height: auto;
+    margin: 0 auto 20px;
+    position: relative;
+    background: url('../assets/ramadan-vibes.svg') center/contain no-repeat;
+}
+
+.ramadan-text {
+    color: var(--primary);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 1px;
+}
+
+.ramadan-list {
+    max-width: 800px;
+    margin: 30px auto;
+    text-align: left;
+    padding: 20px;
+    background-color: rgba(79, 155, 255, 0.05);
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.ramadan-list ol {
+    padding-left: 30px;
+}
+
+.ramadan-list li {
+    margin-bottom: 12px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* About Section */
+#about {
+    padding: 60px 0;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+    color: var(--text);
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border-radius: 2px;
+}
+
+.description {
+    margin-top: 20px;
+    color: var(--text-secondary);
+}
+
+.description p {
+    margin-bottom: 15px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 80px;
+    padding: 40px 0;
+    color: var(--text-secondary);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.social-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-variant);
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: none;
+}
+
+.social-btn:hover {
+    transform: scale(1.1);
+    background-color: var(--primary);
+}
+
+/* Install App Banner */
+.install-banner {
+    background-color: var(--surface);
+    border-radius: 16px;
+    padding: 20px;
+    margin: 40px auto;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    display: none;
+    align-items: center;
+    position: relative;
+}
+
+.install-banner.show {
+    display: flex;
+}
+
+.install-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: var(--primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.install-text {
+    flex: 1;
+}
+
+.install-title {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.install-description {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.install-button {
+    padding: 8px 16px;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    margin-left: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.install-button:hover {
+    background-color: var(--primary-variant);
+}
+
+.install-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+/* Scroll to top button */
+.scroll-top {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    cursor: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 99;
+}
+
+.scroll-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-top:hover {
+    background-color: var(--primary-variant);
+}
+
+/* Back button (hidden as requested) */
+.back-button {
+    display: none;
+}
+
+/* Music Player Styles */
+.playlist-section {
+    margin: 40px 0;
+    padding: 20px;
+    background-color: var(--surface);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.playlist-nav {
+    display: flex;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.playlist-tab {
+    padding: 10px 20px;
+    cursor: none;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.playlist-tab.active {
+    color: var(--primary);
+}
+
+.playlist-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary);
+    border-radius: 3px 3px 0 0;
+}
+
+.playlist-content {
+    display: none;
+}
+
+.playlist-content.active {
+    display: block;
+}
+
+.song-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: background-color 0.3s ease;
+    cursor: none;
+}
+
+.song-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.song-item.playing {
+    background-color: rgba(79, 155, 255, 0.2);
+}
+
+.song-number {
+    width: 30px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.song-info {
+    flex: 1;
+    margin: 0 15px;
+}
+
+.song-title {
+    color: var(--text);
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.song-artist {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.song-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.song-download {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.song-download:hover {
+    color: var(--primary);
+}
+
+.song-duration {
+    color: var(--text-secondary);
+    margin-left: 10px;
+    white-space: nowrap;
+}
+
+/* Floating Music Player */
+.floating-music-player {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 300px;
+    background-color: var(--surface);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    transform: translateY(0);
+    opacity: 1;
+    cursor: move;
+}
+
+.floating-music-player.minimized {
+    height: 60px;
+    overflow: hidden;
+}
+
+.floating-music-player.hidden {
+    transform: translateY(150%);
+    opacity: 0;
+}
+
+.player-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 15px;
+    background-color: var(--primary);
+    color: white;
+}
+
+.player-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.player-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.player-controls button {
+    background: none;
+    border: none;
+    color: white;
+    cursor: none;
+    transition: transform 0.2s ease;
+}
+
+.player-controls button:hover {
+    transform: scale(1.1);
+}
+
+.player-content {
+    padding: 15px;
+}
+
+.player-cover {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    font-size: 1.8rem;
+    float: left;
+    margin-right: 15px;
+}
+
+.player-info {
+    margin-left: 75px;
+    margin-bottom: 15px;
+}
+
+.player-song-title {
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.player-song-artist {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
+.player-progress {
+    height: 4px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    margin: 15px 0;
+    cursor: pointer;
+}
+
+.player-progress .progress-bar {
+    height: 100%;
+    background-color: var(--primary);
+    border-radius: 2px;
+    width: 0%;
+}
+
+.player-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.player-buttons button {
+    background: none;
+    border: none;
+    color: var(--text);
+    cursor: none;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.player-buttons button:hover {
+    color: var(--primary);
+}
+
+.play-pause-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: white !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.play-pause-btn:hover {
+    background-color: var(--primary-variant) !important;
+}
+
+/* Read Page Styles */
+.articles-section {
+    margin: 40px 0;
+}
+
+.article-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.filter-btn {
+    padding: 8px 20px;
+    border-radius: 20px;
+    background-color: var(--surface);
+    color: var(--text);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: none;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.filter-btn.active {
+    background-color: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.article-card {
+    border-radius: 16px;
+    background-color: var(--surface);
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.article-image {
+    width: 100%;
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--primary-variant);
+}
+
+.article-content {
+    padding: 20px;
+}
+
+.article-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    background-color: rgba(79, 155, 255, 0.1);
+    color: var(--primary);
+    border-radius: 12px;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+.article-title {
+    font-size: 1.2rem;
+    color: var(--text);
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.article-excerpt {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.article-meta {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 10px;
+}
+
+/* Multi-language support */
+[lang="en"] [data-lang]:not([data-lang="en"]),
+[lang="ml"] [data-lang]:not([data-lang="ml"]),
+[lang="ar"] [data-lang]:not([data-lang="ar"]) {
+    display: none !important;
+}
+
+[lang="ar"] {
+    direction: rtl;
+    text-align: right;
+}
+
+[lang="ar"] .side-menu {
+    left: auto;
+    right: -300px;
+}
+
+[lang="ar"] .side-menu.active {
+    left: auto;
+    right: 0;
+}
+
+[lang="ar"] .menu-toggle {
+    left: auto;
+    right: 20px;
+}
+
+/* Install button styling */
+#install-btn.side-menu-item {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    background-color: var(--primary);
+    color: var(--bg);
+    border-radius: 8px;
+    margin: 10px 0;
+    transition: all 0.3s ease;
+}
+
+#install-btn.side-menu-item:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+#install-btn.side-menu-item i {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+/* Language options styling */
+.language-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 15px 0;
+}
+
+.language-option {
+    padding: 10px 15px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    background: none;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95em;
+    text-align: center;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+.language-option:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: all 0.5s ease;
+}
+
+.language-option:hover:before {
+    left: 100%;
+}
+
+.language-option.active {
+    background-color: var(--primary);
+    color: white;
+    border-color: var(--primary);
+    box-shadow: 0 4px 15px rgba(79, 155, 255, 0.3);
+}
+
+.language-option:hover:not(.active) {
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: translateY(-2px);
+}
+
+/* RTL support for Arabic */
+[lang="ar"] .side-menu-content {
+    direction: rtl;
+    text-align: right;
+}
+
+[lang="ar"] .side-menu-item i {
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+/* Enhanced Responsive adjustments */
+@media (max-width: 1200px) {
+    .container {
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 992px) {
+    h1 {
+        font-size: 2.8rem;
+    }
+    
+    .ramadan-text {
+        font-size: 2.2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .floating-music-player {
+        width: 300px;
+        bottom: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .ramadan-logo {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .bottom-nav {
+        width: 95%;
+        height: 60px;
+    }
+    
+    .side-menu {
+        width: 280px;
+    }
+    
+    .floating-music-player {
+        width: 280px;
+        bottom: 90px;
+    }
+    
+    .articles-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .ramadan-list {
+        padding: 15px;
+    }
+    
+    .ramadan-list ol {
+        padding-left: 20px;
+    }
+    
+    .menu-toggle {
+        top: 15px;
+        left: 15px;
+        width: 45px;
+        height: 45px;
+    }
+    
+    .scroll-top {
+        width: 45px;
+        height: 45px;
+        bottom: 90px;
+    }
+}
+
+@media (max-width: 576px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    .header-description {
+        font-size: 0.9rem;
+        padding: 0 10px;
+    }
+    
+    .ramadan-logo {
+        width: 140px;
+        height: 140px;
+    }
+    
+    .ramadan-text {
+        font-size: 2rem;
+    }
+    
+    .nav-items {
+        max-width: 100%;
+    }
+    
+    .nav-item i {
+        font-size: 1.3rem;
+    }
+    
+    .playlist-tab {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    
+    .side-menu {
+        width: 260px;
+    }
+    
+    .floating-music-player {
+        width: 240px;
+        right: 10px;
+    }
+    
+    .article-filters {
+        justify-content: center;
+    }
+    
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .install-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+    
+    .install-icon {
+        margin: 0 auto 10px;
+    }
+    
+    .install-button {
+        margin: 10px auto 0;
+    }
+    
+    .social-links {
+        gap: 15px;
+    }
+    
+    .social-btn {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .header-description {
+        font-size: 0.85rem;
+    }
+    
+    .ramadan-logo {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .ramadan-text {
+        font-size: 1.8rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .description p {
+        font-size: 0.9rem;
+    }
+    
+    .side-menu {
+        width: 85%;
+        max-width: 260px;
+    }
+    
+    .floating-music-player {
+        width: 90%;
+        max-width: 240px;
+        right: 5%;
+    }
+    
+    .menu-toggle {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .scroll-top {
+        width: 40px;
+        height: 40px;
+        right: 15px;
+    }
+    
+    .bottom-nav {
+        width: 98%;
+        height: 55px;
+    }
+}
+
+@media (max-width: 360px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    .header-description {
+        font-size: 0.8rem;
+    }
+    
+    .ramadan-text {
+        font-size: 1.6rem;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .side-menu {
+        width: 90%;
+    }
+    
+    .bottom-nav {
+        height: 50px;
+    }
+    
+    .nav-item i {
+        font-size: 1.2rem;
+    }
+}

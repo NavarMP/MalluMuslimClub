@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="theme-color" content="#4f9bff">
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+    <link rel="manifest" href="json/manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="manifest" href="json/manifest.json" />
+</head>
+<body lang="en">
+    <!-- Custom cursor elements -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+    
+    <!-- Side Menu Toggle Button -->
+    <button class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </button>
+    
+    <!-- Side Menu -->
+    <div class="side-menu" id="side-menu">
+        <div class="side-menu-header">
+            <div class="side-menu-logo">
+                <div class="side-menu-logo-img"></div>
+                <div class="side-menu-logo-text">Mallu Muslim Club</div>
+            </div>
+        </div>
+        
+        <div class="side-menu-content">
+            <div class="side-menu-section">
+                <div class="side-menu-section-title" data-lang="en">Theme</div>
+                <div class="side-menu-section-title" data-lang="ml">തീം</div>
+                <div class="side-menu-section-title" data-lang="ar">السمة</div>
+                <div class="theme-options">
+                    <button class="theme-option" data-theme="light">
+                        <span data-lang="en">Light</span>
+                        <span data-lang="ml">ലൈറ്റ്</span>
+                        <span data-lang="ar">فاتح</span>
+                    </button>
+                    <button class="theme-option active" data-theme="dark">
+                        <span data-lang="en">Dark</span>
+                        <span data-lang="ml">ഡാർക്ക്</span>
+                        <span data-lang="ar">داكن</span>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="side-menu-section">
+                <div class="side-menu-section-title" data-lang="en">Language</div>
+                <div class="side-menu-section-title" data-lang="ml">ഭാഷ</div>
+                <div class="side-menu-section-title" data-lang="ar">اللغة</div>
+                <div class="language-options">
+                    <button class="language-option active" data-lang="en">English</button>
+                    <button class="language-option" data-lang="ml">മലയാളം</button>
+                    <button class="language-option" data-lang="ar">العربية</button>
+                </div>
+            </div>
+            
+            <div class="side-menu-section">
+                <div class="side-menu-section-title" data-lang="en">Navigate</div>
+                <div class="side-menu-section-title" data-lang="ml">നാവിഗേറ്റ്</div>
+                <div class="side-menu-section-title" data-lang="ar">التنقل</div>
+                
+                <a href="index.html" class="side-menu-item">
+                    <i class="fas fa-home"></i>
+                    <span data-lang="en">Home</span>
+                    <span data-lang="ml">ഹോം</span>
+                    <span data-lang="ar">الرئيسية</span>
+                </a>
+                
+                <a href="playlists.html" class="side-menu-item">
+                    <i class="fas fa-music"></i>
+                    <span data-lang="en">Playlists</span>
+                    <span data-lang="ml">പ്ലേലിസ്റ്റുകൾ</span>
+                    <span data-lang="ar">قوائم التشغيل</span>
+                </a>
+                
+                <a href="read.html" class="side-menu-item">
+                    <i class="fas fa-book"></i>
+                    <span data-lang="en">Read</span>
+                    <span data-lang="ml">വായിക്കുക</span>
+                    <span data-lang="ar">اقرأ</span>
+                </a>
+                
+                <a href="https://instagram.com/MalluMuslimClub" class="side-menu-item" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                    <span data-lang="en">Instagram</span>
+                    <span data-lang="ml">ഇൻസ്റ്റാഗ്രാം</span>
+                    <span data-lang="ar">إنستاغرام</span>
+                </a>
+                
+                <a href="https://wa.me/919656331391" class="side-menu-item" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <span data-lang="en">WhatsApp</span>
+                    <span data-lang="ml">വാട്സ്ആപ്പ്</span>
+                    <span data-lang="ar">واتساب</span>
+                </a>
+            </div>
+            
+            <div class="side-menu-section">
+                <div class="side-menu-section-title" data-lang="en">Install App</div>
+                <div class="side-menu-section-title" data-lang="ml">ആപ്പ് ഇൻസ്റ്റാൾ ചെയ്യുക</div>
+                <div class="side-menu-section-title" data-lang="ar">تثبيت التطبيق</div>
+                
+                <button id="install-btn" class="side-menu-item">
+                    <i class="fas fa-download"></i>
+                    <span data-lang="en">Install Website</span>
+                    <span data-lang="ml">വെബ്സൈറ്റ് ഇൻസ്റ്റാൾ ചെയ്യുക</span>
+                    <span data-lang="ar">تثبيت الموقع</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Side Menu Overlay -->
+    <div class="side-menu-overlay" id="side-menu-overlay"></div>
+    
+    <!-- Scroll to top button -->
+    <button class="scroll-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Floating Music Player -->
+    <div class="floating-music-player" id="floating-music-player">
+        <div class="player-header">
+            <div class="player-title">Now Playing</div>
+            <div class="player-controls">
+                <button class="minimize-player"><i class="fas fa-minus"></i></button>
+                <button class="close-player"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
+        <div class="player-content">
+            <div class="player-cover">
+                <i class="fas fa-music"></i>
+            </div>
+            <div class="player-info">
+                <div class="player-song-title" id="floating-song-title">Loading...</div>
+                <div class="player-song-artist" id="floating-song-artist"></div>
+            </div>
+            <div class="player-progress">
+                <div class="progress-bar" id="floating-progress-bar"></div>
+            </div>
+            <div class="player-buttons">
+                <button onclick="playPrevious()"><i class="fas fa-step-backward"></i></button>
+                <button class="play-pause-btn" onclick="togglePlayPause()"><i class="fas fa-play" id="floating-play-icon"></i></button>
+                <button onclick="playNext()"><i class="fas fa-step-forward"></i></button>
+            </div>
+        </div>
+        <audio id="floating-audio-player"></audio>
+    </div>
+
+    <div class="container">
+        
+        <header class="animate__animated animate__fadeIn">
+            <h1 class="animate__animated animate__zoomIn">
+                <span data-lang="en">Halal Musics</span>
+                <span data-lang="ml">ഹലാൽ സംഗീതങ്ങൾ</span>
+                <span data-lang="ar">موسيقى حلال</span>
+            </h1>
+            <p class="header-description animate__animated animate__fadeIn" style="animation-delay: 0.2s">
+                <span data-lang="en">Enjoy our curated collection of halal music that uplifts the soul and celebrates our cultural heritage.</span>
+                <span data-lang="ml">ആത്മാവിനെ ഉയർത്തുകയും നമ്മുടെ സാംസ്കാരിക പൈതൃകത്തെ ആഘോഷിക്കുകയും ചെയ്യുന്ന ഹലാൽ സംഗീതത്തിന്റെ ക്യുറേറ്റ് ചെയ്ത ശേഖരം ആസ്വദിക്കൂ.</span>
+                <span data-lang="ar">استمتع بمجموعتنا المختارة من الموسيقى الحلال التي ترفع الروح وتحتفل بتراثنا الثقافي.</span>
+            </p>
+        </header>
+
+        <div class="playlist-section">
+            <div class="playlist-nav">
+                <div class="playlist-tab active" onclick="switchPlaylist(this, 'arabic-nasheeds')">
+                    <span data-lang="en">Arabic Nasheeds</span>
+                    <span data-lang="ml">സുഖം തോന്നുന്നത്</span>
+                    <span data-lang="ar">أشعر بالرضا</span>
+                </div>
+                <div class="playlist-tab" onclick="switchPlaylist(this, 'malayalam-songs')">
+                    <span data-lang="en">Malayalam Songs</span>
+                    <span data-lang="ml">മലയാളം ഗാനങ്ങൾ</span>
+                    <span data-lang="ar">الأغاني المالايالامية</span>
+                </div>
+                <div class="playlist-tab" onclick="switchPlaylist(this, 'workout-nasheeds')">
+                    <span data-lang="en">Workout Nasheeds</span>
+                    <span data-lang="ml">വർക്കൗട്ട് നശീദുകൾ</span>
+                    <span data-lang="ar">أناشيد التمرين</span>
+                </div>
+                <div class="playlist-tab active" onclick="switchPlaylist(this, 'feel-good')">
+                    <span data-lang="en">Feel Good</span>
+                    <span data-lang="ml">അറബിക് നശീദുകൾ</span>
+                    <span data-lang="ar">الأناشيد العربية</span>
+                </div>
+            </div>
+            
+            <!-- Arabic Nasheeds Playlist -->
+            <div class="playlist-content active" id="arabic-nasheeds">
+                <div class="song-item" onclick="playSong('playlists/arabic nasheeds/1.mp3', 'Arabic Nasheed 1', 'Various Artists')">
+                    <div class="song-number">1</div>
+                    <div class="song-info">
+                        <div class="song-title">Arabic Nasheed 1</div>
+                        <div class="song-artist">Various Artists</div>
+                    </div>
+                    <div class="song-actions">
+                        <a href="playlists/arabic nasheeds/1.mp3" download class="song-download" title="Download">
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                    <div class="song-duration" id="duration-an-1">--:--</div>
+                </div>
+                
+                <div class="song-item" onclick="playSong('playlists/arabic nasheeds/2.mp3', 'Arabic Nasheed 2', 'Various Artists')">
+                    <div class="song-number">2</div>
+                    <div class="song-info">
+                        <div class="song-title">Arabic Nasheed 2</div>
+                        <div class="song-artist">Various Artists</div>
+                    </div>
+                    <div class="song-actions">
+                        <a href="playlists/arabic nasheeds/2.mp3" download class="song-download" title="Download">
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                    <div class="song-duration" id="duration-an-2">--:--</div>
+                </div>
+                
+                <div class="song-item" onclick="playSong('playlists/arabic nasheeds/3.mp3', 'Arabic Nasheed 3', 'Various Artists')">
+                    <div class="song-number">3</div>
+                    <div class="song-info">
+                        <div class="song-title">Arabic Nasheed 3</div>
+                        <div class="song-artist">Various Artists</div>
+                    </div>
+                    <div class="song-actions">
+                        <a href="playlists/arabic nasheeds/3.mp3" download class="song-download" title="Download">
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                    <div class="song-duration" id="duration-an-3">--:--</div>
+                </div>
+                
+                <div class="song-item" onclick="playSong('playlists/arabic nasheeds/4.mp3', 'Arabic Nasheed 4', 'Various Artists')">
+                    <div class="song-number">4</div>
+                    <div class="song-info">
+                        <div class="song-title">Arabic Nasheed 4</div>
+                        <div class="song-artist">Various Artists</div>
+                    </div>
+                    <div class="song-actions">
+                        <a href="playlists/arabic nasheeds/4.mp3" download class="song-download" title="Download">
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                    <div class="song-duration" id="duration-an-4">--:--</div>
+                </div>
+                
+                <div class="song-item" onclick="playSong('playlists/arabic nasheeds/5.mp3', 'Arabic Nasheed 5', 'Various Artists')">
+                    <div class="song-number">5</div>
+                    <div class="song-info">
+                        <div class="song-title">Arabic Nasheed 5</div>
+                        <div class="song-artist">Various Artists</div>
+                    </div>
+                    <div class="song-actions">
+                        <a href="playlists/arabic nasheeds/5.mp3" download class="song-download" title="Download">
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                    <div class="song-duration" id="duration-an-5">--:--</div>
+                </div>
+                
+                <div class="song-item" onclick="playSong('playlists/arabic nasheeds/6.mp3', 'Arabic Nasheed 6', 'Various Artists')">
+                    <div class="song-number">6</div>
+                    <div class="song-info">
+                        <div class="song-title">Arabic Nasheed 6</div>
+                        <div class="song-artist">Various Artists</div>
+                    </div>
+                    <div class="song-actions">
+                        <a href="playlists/arabic nasheeds/6.mp3" download class="song-download" title="Download">
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                    <div class="song-duration" id="duration-an-6">--:--</div>
+                </div>
+                
+                <div class="song-item" onclick="playSong('playlists/arabic nasheeds/7.mp3', 'Arabic Nasheed 7', 'Various Artists')">
+                    <div class="song-number">7</div>
+                    <div class="song-info">
+                        <div class="song-title">Arabic Nasheed 7</div>
+                        <div class="song-artist">Various Artists</div>
+                    </div>
+                    <div class="song-actions">
+                        <a href="playlists/arabic nasheeds/7.mp3" download class="song-download" title="Download">
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                    <div class="song-duration" id="duration-an-7">--:--</div>
+                </div>
+            </div>
+            
+            <!-- Malayalam Songs Playlist -->
+            <div class="playlist-content" id="malayalam-songs">
+                <div class="song-item" onclick="playSong('playlists/malayalam songs/1.mp3', 'Malayalam Song 1', 'Malayalam Artist')">
+                    <div class="song-number">1</div>
+                    <div class="song-info">
+                        <div class="song-title">Malayalam Song 1</div>
+                        <div class="song-artist">Malayalam Artist</div>
+                    </div>
+                    <div class="song-actions">
+                        <a href="playlists/malayalam songs/1.mp3" download class="song-download" title="Download">
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                    <div class="song-duration" id="duration-ms-1">--:--</div>
+                </div>
+                
+                <div class="song-item" onclick="playSong('playlists/malayalam songs/2.mp3', 'Malayalam Song 2', 'Malayalam Artist')">
+                    <div class="song-number">2</div>
+                    <div class="song-info">
+                        <div class="song-title">Malayalam Song 2</div>
+                        <div class="song-artist">Malayalam Artist</div>
+                    </div>
+                    <div class="song-actions">
+                        <a href="playlists/malayalam songs/2.mp3" download class="song-download" title="Download">
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                    <div class="song-duration" id="duration-ms-2">--:--</div>
+                </div>
+            </div>
+            
+            <!-- Workout Nasheeds Playlist -->
+            <div class="playlist-content" id="workout-nasheeds">
+                <div class="song-item" onclick="playSong('playlists/gym nasheeds/1.mp3', 'Workout Nasheed 1', 'Workout Nasheed')">
+                    <div class="song-number">1</div>
+                    <div class="song-info">
+                        <div class="song-title">Workout Nasheed 1</div>
+                        <div class="song-artist">Workout Nasheed</div>
+                    </div>
+                    <div class="song-actions">
+                        <a href="playlists/gym nasheeds/1.mp3" download class="song-download" title="Download">
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                    <div class="song-duration" id="duration-wn-1">--:--</div>
+                </div>
+                
+                <div class="song-item" onclick="playSong('playlists/gym nasheeds/2.mp3', 'Workout Nasheed 2', 'Workout Nasheed')">
+                    <div class="song-number">2</div>
+                    <div class="song-info">
+                        <div class="song-title">Workout Nasheed 2</div>
+                        <div class="song-artist">Workout Nasheed</div>
+                    </div>
+                    <div class="song-actions">
+                        <a href="playlists/gym nasheeds/2.mp3" download class="song-download" title="Download">
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                    <div class="song-duration" id="duration-wn-2">--:--</div>
+                </div>
+            </div>
+
+            <!-- Feel Good Playlist -->
+            <div class="playlist-content active" id="feel-good">
+                <div class="song-item" onclick="playSong('playlists/feel good/1.mp3', 'Feel Good 1', 'Various Artists')">
+                    <div class="song-number">1</div>
+                    <div class="song-info">
+                        <div class="song-title">Feel Good 1</div>
+                        <div class="song-artist">Various Artists</div>
+                    </div>
+                    <div class="song-actions">
+                        <a href="playlists/feel good/1.mp3" download class="song-download" title="Download">
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                    <div class="song-duration" id="duration-an-1">--:--</div>
+                </div>
+                
+                <div class="song-item" onclick="playSong('playlists/feel good/2.mp3', 'Feel Good 2', 'Various Artists')">
+                    <div class="song-number">2</div>
+                    <div class="song-info">
+                        <div class="song-title">Feel Good 2</div>
+                        <div class="song-artist">Various Artists</div>
+                    </div>
+                    <div class="song-actions">
+                        <a href="playlists/feel good/2.mp3" download class="song-download" title="Download">
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                    <div class="song-duration" id="duration-an-2">--:--</div>
+                </div>
+                
+                <div class="song-item" onclick="playSong('playlists/feel good/3.mp3', 'Feel Good 3', 'Various Artists')">
+                    <div class="song-number">3</div>
+                    <div class="song-info">
+                        <div class="song-title">Feel Good 3</div>
+                        <div class="song-artist">Various Artists</div>
+                    </div>
+                    <div class="song-actions">
+                        <a href="playlists/feel good/3.mp3" download class="song-download" title="Download">
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                    <div class="song-duration" id="duration-an-3">--:--</div>
+                </div>
+                
+                <div class="song-item" onclick="playSong('playlists/feel good/4.mp3', 'Feel Good 4', 'Various Artists')">
+                    <div class="song-number">4</div>
+                    <div class="song-info">
+                        <div class="song-title">Feel Good 4</div>
+                        <div class="song-artist">Various Artists</div>
+                    </div>
+                    <div class="song-actions">
+                        <a href="playlists/feel good/4.mp3" download class="song-download" title="Download">
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                    <div class="song-duration" id="duration-an-4">--:--</div>
+                </div>
+                
+                <div class="song-item" onclick="playSong('playlists/feel good/5.mp3', 'Feel Good 5', 'Various Artists')">
+                    <div class="song-number">5</div>
+                    <div class="song-info">
+                        <div class="song-title">Feel Good 5</div>
+                        <div class="song-artist">Various Artists</div>
+                    </div>
+                    <div class="song-actions">
+                        <a href="playlists/feel good/5.mp3" download class="song-download" title="Download">
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                    <div class="song-duration" id="duration-an-5">--:--</div>
+                </div>
+                
+                <div class="song-item" onclick="playSong('playlists/feel good/6.mp3', 'Feel Good 6', 'Various Artists')">
+                    <div class="song-number">6</div>
+                    <div class="song-info">
+                        <div class="song-title">Feel Good 6</div>
+                        <div class="song-artist">Various Artists</div>
+                    </div>
+                    <div class="song-actions">
+                        <a href="playlists/feel good/6.mp3" download class="song-download" title="Download">
+                            <i class="fas fa-download"></i>
+                        </a>
+                    </div>
+                    <div class="song-duration" id="duration-an-6">--:--</div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="animate__animated animate__fadeInUp" style="animation-delay: 0.8s">
+            <div class="social-links">
+                <a href="https://instagram.com/MalluMuslimClub" class="social-btn" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/919656331391" class="social-btn" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p>
+                <span data-lang="en">© 2025 Developed by <a href="https://NavarMP.github.io/" target="_blank" style="color: var(--primary); text-decoration: none;">Muhammed Navar</a></span>
+                <span data-lang="ml">© 2025 വികസിപ്പിച്ചത് <a href="https://NavarMP.github.io/" target="_blank" style="color: var(--primary); text-decoration: none;">മുഹമ്മദ് നവാർ</a></span>
+                <span data-lang="ar">© 2025 طوره <a href="https://NavarMP.github.io/" target="_blank" style="color: var(--primary); text-decoration: none;">محمد نوار</a></span>
+            </p>
+        </footer>
+    </div>
+
+    <!-- Floating Bottom Navigation -->
+    <nav class="bottom-nav">
+        <div class="nav-items">
+            <div class="nav-item" onclick="navigateTo('home')">
+                <span data-lang="en">Home</span>
+                <span data-lang="ml">ഹോം</span>
+                <span data-lang="ar">الرئيسية</span>
+                <i class="fas fa-home"></i>
+            </div>
+            <div class="nav-item active" onclick="navigateTo('playlist')">
+                <span data-lang="en">Playlist</span>
+                <span data-lang="ml">പ്ലേലിസ്റ്റ്</span>
+                <span data-lang="ar">قائمة التشغيل</span>
+                <i class="fas fa-music"></i>
+            </div>
+            <div class="nav-item" onclick="navigateTo('read')">
+                <span data-lang="en">Read</span>
+                <span data-lang="ml">വായിക്കുക</span>
+                <span data-lang="ar">اقرأ</span>
+                <i class="fas fa-book"></i>
+            </div>
+        </div>
+    </nav>
+
+    <script src="js/script.js"></script>
+    <script src="json/translations.json"></script>
+</body>
+</html>
